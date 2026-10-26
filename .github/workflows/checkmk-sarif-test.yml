@@ -1,0 +1,23 @@
+name: Checkmk Synthetic Security Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  upload-sarif:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Upload synthetic security finding
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: checkmk-test.sarif
+          category: checkmk-synthetic
+          wait-for-processing: true

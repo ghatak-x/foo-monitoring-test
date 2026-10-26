@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Checkmk Synthetic Test Scanner",
+          "rules": [
+            {
+              "id": "CMKTEST-001",
+              "shortDescription": {
+                "text": "Synthetic security test finding"
+              },
+              "properties": {
+                "precision": "high",
+                "security-severity": "5.0"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CMKTEST-001",
+          "level": "warning",
+          "message": {
+            "text": "Synthetic finding created to test Checkmk GitHub monitoring. This is not a real vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "README.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
