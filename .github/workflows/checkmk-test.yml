@@ -1,0 +1,27 @@
+name: Checkmk GitHub Runner Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  github-hosted:
+    name: GitHub Hosted Runner
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Display runner information
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner architecture: $RUNNER_ARCH"
+          uname -a
+
+      - name: Simulate workload
+        run: |
+          echo "Starting workload"
+          sleep 30
+          echo "Workload completed"
